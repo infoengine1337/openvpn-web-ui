@@ -1,0 +1,231 @@
+/* The emerging W3C standard
+   that is currently Firefox-only */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: gray none;
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 20px;
+    border: 3px solid white;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    background: #F4F7FC;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #0F123F;
+    transition: all 0.4s;
+    z-index: 100 !important;
+}
+
+/* custom header body */
+.custom-media-body {
+    border-radius: 20px;
+    background-color: #ffffff63;
+}
+
+.page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+}
+
+#sidebar.active {
+    margin-left: -17rem;
+}
+
+#content.active {
+    width: 100%;
+    margin: 0;
+}
+
+.custom-card-radius-top {
+    border-radius: 15px 15px 0px 0px !important;
+}
+
+.custom-card-radius-bottom {
+    border-radius: 0px 0px 15px 15px !important;
+}
+
+.custom-dashboard-list-item {
+    border-width: 0px 0px 1px 0px;
+}
+
+.custom-card-shadow {
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 2px 0px;
+}
+
+.custom-card-shadow:hover {
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 6px 10px 0px;
+    transition: all 0.4s;
+}
+
+.custom-card-shadow:active {
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 2px 0px;
+    transition: all 0.4s;
+}
+
+.card-list {
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, .125);
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 2px 0px;
+}
+
+.card-list:hover {
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 6px 10px 0px;
+    transition: all 0.4s;
+}
+
+.card-list:active {
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 2px 0px;
+    transition: all 0.4s;
+}
+
+.btn {
+    border-radius: 4px;
+    /* font-weight: bold; */
+}
+
+.action-button:hover {
+    background-color: rgba(128, 128, 128, 0.3);
+}
+
+.separator {
+    margin: 3rem 0;
+    border-bottom: 1px dashed #fff;
+}
+
+.text-uppercase {
+    letter-spacing: 0.1em;
+}
+
+.text-gray {
+    color: #aaa;
+}
+
+input {
+    height: 3em !important;
+    background-color: white !important;
+    border-radius: 4px !important;
+    margin-bottom: 10px;
+}
+
+.custom-link {
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    border-radius: 10px;
+    color: white;
+}
+
+.custom-link:hover {
+    background: #f3f2f2;
+    border-radius: 10px;
+}
+
+.custom-link.active {
+    background: #0d6efd;
+    color: white;
+}
+
+.cutom-button {
+    height: 2.5em !important;
+    border-radius: 10px !important;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-weight: normal !important;
+}
+
+.hide {
+    display: none;
+}
+
+.table-responsive {
+    height: 400px;
+    overflow: scroll;
+}
+
+thead tr:nth-child(1) th {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.table-head {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.table-row {
+    font-size: smaller;
+}
+
+.h-250 {
+    height: 250px !important;
+    overflow-x: hidden !important;
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+}
+
+.h-250::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+.dashboard-title {
+    font-size: medium !important;
+}
+
+.dropdown-custom {
+    background-color: #0F123F;
+    border-radius: 12px !important;
+}
+
+
+/* Login Page */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -17rem;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+    #content {
+        width: 100;
+        margin: 0;
+    }
+
+    #content.active {
+        margin: 17rem;
+        width: calc(100% - 17rem);
+    }
+}
