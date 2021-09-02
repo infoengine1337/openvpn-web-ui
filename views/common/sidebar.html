@@ -1,0 +1,66 @@
+<div class="vertical-nav" id="sidebar">
+    <div class="py-4 px-3 custom-media-body m-3">
+        <div class="media d-flex align-items-center">
+            <img src="/static/img/person.png" alt="logo" width="40" height="40"
+                class="me-3 ml-3 rounded-circle shadow-lg rounded" />
+            <div class="media-body">
+                <p class="m-0 text-white fw-bold">{{ .Userinfo.Name}}</p>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-gray fw-bold text-uppercase ps-4 small mb-0 mt-4">Dashboard</p>
+    <ul class="nav d-flex flex-column mb-0">
+        <li class="nav-item my-1 mx-3 rounded">
+            <a href="{{urlfor "MainController.Get"}}"
+                class="nav-link custom-link {{if compare .RouterPattern "/"}}active{{end}}"><i
+                    class="fas fa-home mx-2"></i>Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item my-1 mx-3 rounded">
+            <a href="{{urlfor "SettingsController.Get"}}"
+                class="nav-link custom-link {{if compare .RouterPattern "/settings"}}active{{end}}"><i
+                    class="fas fa-cog mx-2"></i>Settings
+            </a>
+        </li>
+
+
+        <li class="nav-item dropright my-1 mx-3 custom-link">
+            <a href="#"
+                class="d-flex justify-content-between nav-link custom-link {{if compare .RouterPattern "/ov/config"}}active{{end}}{{if compare .RouterPattern "/certificates"}}active{{end}}"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div>
+                    <i class="fas fa-calendar-check mx-2"></i>Configuration
+                </div>
+                <i class="fas fa-caret-right my-auto"></i></a>
+            <div class="dropdown-menu px-3 py-2 mx-4 rounded dropdown-custom" aria-labelledby="dropdown">
+                <a class="dropdown-item nav-link my-1 custom-link {{if compare .RouterPattern "/ov/config"}}active{{end}}"
+                    href="{{urlfor "OVConfigController.Get"}}">OpenVPN Config</a>
+                <a class="dropdown-item nav-link my-1 custom-link {{if compare .RouterPattern "/certificates"}}active{{end}}"
+                    href="{{urlfor "CertificatesController.Get"}}">Certificates</a>
+            </div>
+        </li>
+
+
+
+        <li class="nav-item my-1 mx-3 rounded">
+            <a href="{{urlfor "LogsController.Get"}}"
+                class="nav-link custom-link {{if compare .RouterPattern "/logs"}}active{{end}}"><i
+                    class="fas fa-stream mx-2"></i>Logs</a>
+        </li>
+    </ul>
+
+    <p class="text-gray fw-bold text-uppercase ps-4 small mb-0 mt-4">Account</p>
+    <ul class="nav flex-column mb-0">
+        <li class="nav-item my-1 mx-3 rounded">
+            <a href="{{urlfor "ProfileController.Get"}}"
+                class="nav-link custom-link {{if compare .RouterPattern "/profile"}}active{{end}}"><i
+                    class="fas fa-user mx-2"></i>Profile</a>
+        </li>
+        <li class="nav-item my-1 mx-3 rounded">
+            <a href="{{urlfor "LoginController.Logout"}}"
+                class="nav-link custom-link  {{if compare .RouterPattern "/logout"}}active{{end}}"><i
+                    class="fas fa-sign-out-alt mx-2"></i>Sign out</a>
+        </li>
+    </ul>
+
+</div>
