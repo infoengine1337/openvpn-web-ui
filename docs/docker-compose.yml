@@ -2,22 +2,25 @@ version: '2'
 services:
   openvpn:
     cap_add:
-     - NET_ADMIN
+    - NET_ADMIN
     image: awalach/openvpn
     container_name: openvpn
     ports:
-     - "1194:1194/udp"
+    - "1194:1194/udp"
     restart: always
     depends_on:
-      - "gui"
+    - "gui"
     volumes:
-     - ./openvpn-data/conf:/etc/openvpn
+    - ./openvpn-data/conf:/etc/openvpn
   gui:
     image: awalach/openvpn-web-ui
     container_name: openvpn-gui
+    environment:
+    - OPENVPN_ADMIN_USERNAME=admin
+    - OPENVPN_ADMIN_PASSWORD=TxxRgX4eCSLGSIPAh0VFkfklgoOvteR1
     ports:
-     - "8080:8080/tcp"
+    - "8080:8080/tcp"
     restart: always
     volumes:
-     - ./openvpn-data/conf:/etc/openvpn
-     - ./openvpn-data/db:/opt/openvpn-gui/db
+    - ./openvpn-data/conf:/etc/openvpn
+    - ./openvpn-data/db:/opt/openvpn-gui/db
