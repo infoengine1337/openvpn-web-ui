@@ -20,6 +20,12 @@ push "route 10.8.0.0 255.255.255.0"
 push "dhcp-option DNS 8.8.8.8"
 push "dhcp-option DNS 8.8.4.4"
 
+push "redirect-gateway def1"
+sndbuf 512000
+rcvbuf 512000
+push "sndbuf 512000"
+push "rcvbuf 512000"
+
 keepalive {{ .Keepalive }}
 
 comp-lzo

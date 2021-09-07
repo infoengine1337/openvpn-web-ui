@@ -11,6 +11,8 @@ keysize {{ .Keysize }}
 auth {{ .Auth }}
 tls-client
 
+redirect-gateway def1
+
 ca {{ .Ca }}
 cert {{ .Cert }}
 key {{ .Key }}
