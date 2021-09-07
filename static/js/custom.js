@@ -26,3 +26,14 @@ $(function() {
   //});
   //window.location.reload();
 })
+
+
+$('#create-new-cert').on('click',function(event){
+  $("#infoModel").modal("show");
+})
+
+
+$('#dropdownMenuButton').on('show.bs.dropdown', function () {
+  // do something…
+  console.log("Button pressed")
+})
