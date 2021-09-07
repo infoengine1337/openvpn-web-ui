@@ -207,6 +207,11 @@ thead tr:nth-child(1) th {
     border-radius: 12px !important;
 }
 
+.sidebar-avatar-image {
+    background: white !important;
+    border-radius: 25%;
+}
+
 
 /* Login Page */
 
