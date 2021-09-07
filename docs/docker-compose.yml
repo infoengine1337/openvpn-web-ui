@@ -17,7 +17,7 @@ services:
     container_name: openvpn-gui
     environment:
     - OPENVPN_ADMIN_USERNAME=admin
-    - OPENVPN_ADMIN_PASSWORD=TxxRgX4eCSLGSIPAh0VFkfklgoOvteR1
+    - OPENVPN_ADMIN_PASSWORD=b3secure
     ports:
     - "8080:8080/tcp"
     restart: always

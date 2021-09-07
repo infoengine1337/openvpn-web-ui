@@ -7,7 +7,7 @@ Goal: create quick to deploy and easy to use solution that makes work with small
 
 If you have docker and docker-compose installed, you can jump directly to [installation](#Prod).
 
-![Status page](docs/images/preview_status.png?raw=true)
+![Status page](docs/images/dashboard-screen.png?raw=true)
 
 Please note this project is in alpha stage. It still needs some work to make it secure and feature complete.
 
@@ -25,9 +25,28 @@ Please note this project is in alpha stage. It still needs some work to make it 
 
 ## Screenshots
 
-[Screenshots](docs/screenshots.md)
+### Login
 
-## Usage
+![Login page](docs/images/logs-screen.png?raw=true)
+
+### Certificates
+
+![Certificate page](docs/images/certificates-screen.png?raw=true)
+
+### OpenVPN config
+
+![Config page](docs/images/openvpn-config-screen.png?raw=true)
+
+### Settings
+
+![Settings page](docs/images/settings-screen.png?raw=true)
+
+### Logs
+
+![Log page](docs/images/logs-screen.png?raw=true)
+
+
+### Usage
 
 After startup web service is visible on port 8080. To login use the following default credentials:
 
