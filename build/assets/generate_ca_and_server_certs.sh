@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-CA_NAME=LocalCA
-SERVER_NAME=server
+CA_NAME="${CA_NAME:-LocalCA}"
+SERVER_NAME="${SERVER_NAME:-server}"
 EASY_RSA=/usr/share/easy-rsa
 
 mkdir -p /etc/openvpn/keys

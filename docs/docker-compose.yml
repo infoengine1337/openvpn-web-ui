@@ -13,11 +13,17 @@ services:
     volumes:
     - ./openvpn-data/conf:/etc/openvpn
   gui:
-    image: awalach/openvpn-web-ui
+    image: intrigues/openvpn-web-ui:0.1
     container_name: openvpn-gui
     environment:
     - OPENVPN_ADMIN_USERNAME=admin
     - OPENVPN_ADMIN_PASSWORD=b3secure
+    - COUNTRY=IN
+    - PROVINCE=GJ
+    - CITY=ADI
+    - ORG=INTRIGUES
+    - EMAIL=intrigues@gmail.com
+    - OU=IT
     ports:
     - "8080:8080/tcp"
     restart: always
