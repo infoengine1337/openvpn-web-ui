@@ -110,3 +110,21 @@ func CreateCertificate(name string) error {
 	}
 	return nil
 }
+
+func RevokeCertificate(name string) error {
+	rsaPath := "/usr/share/easy-rsa/"
+	varsPath := models.GlobalCfg.OVConfigPath + "keys/vars"
+	cmd := exec.Command("/bin/bash", "-c",
+		fmt.Sprintf(
+			"source %s &&"+
+				"export KEY_NAME=%s &&"+
+				"%s/revoke-full %s", varsPath, name, rsaPath, name))
+	cmd.Dir = models.GlobalCfg.OVConfigPath
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		beego.Debug(string(output))
+		beego.Error(err)
+		return err
+	}
+	return nil
+}
