@@ -77,7 +77,7 @@
                 {{ if eq .Revocation ""}}
                 <a href="{{urlfor "CertificatesController.Revoke" ":key" .Details.Name}}" class="btn btn-danger"><i class="fas fa-ban"></i></a>
                 {{ end }}
-                <a {{urlfor "CertificatesController.Download" ":key" .Details.Name}} class="btn btn-primary"><i class="fas fa-download"></i></a>
+                <a href="{{urlfor "CertificatesController.Download" ":key" .Details.Name}}" class="btn btn-primary"><i class="fas fa-download"></i></a>
               </div>
             </td>
           </tr>
