@@ -17,9 +17,9 @@
     {{template "common/alert.html" .}}
     <form role="form" action="{{urlfor "CertificatesController.Post"}}" method="post">
       <div class="box-body">
-        <div class="form-group {{if field_error_exist .validation "Name" }}has-error{{end}}">
-          <label for="name" class="fw-bold">Name</label>
-          <input type="text" class="form-control" id="Name" name="Name">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
+          <label for="Name">Name</label>
         </div>
         <span class="help-block"> {{template "common/fvalid.html" field_error_message .validation "Name" }}</span>
         <button type="submit" class="btn btn-primary mt-3">Create</button>
@@ -39,12 +39,13 @@
       <table class="table no-margin">
         <thead>
           <tr class="border-bottom">
+            <th class="border-0">Serial</th>
             <th class="border-0">Name</th>
             <th class="border-0">State</th>
             <th class="border-0">Expiration</th>
             <th class="border-0">Revocation</th>
-            <th class="border-0">Serial</th>
             <th class="border-0">Details</th>
+            <th class="border-0">Actions</th>
             <th class="border-0"></th>
           </tr>
         </thead>
@@ -53,23 +54,31 @@
           {{range .certificates}}
           {{ if ne .Details.Name "server"}}
           <tr>
-            <td>
-              <a href="{{urlfor "CertificatesController.Download" ":key" .Details.Name}}">
-                {{ .Details.Name }}
-              </a>
-            </td>
-            <td>{{ .EntryType }}</td>
-            <td>{{ dateformat .ExpirationT "2006-01-02 15:04"}}</td>
+            <td class="align-middle">{{ .Serial }}.</td>
+            <td class="align-middle">{{ .Details.Name }}</td>
+            {{ if eq .EntryType "R" }}
+            <td class="align-middle"><span class="badge rounded-pill text-white bg-danger text-dark">Revoked</span></td>
+            {{ else }}
+            <td class="align-middle"><span class="badge rounded-pill text-white bg-success text-dark">Valid</span></td>
+            {{ end }}
+            <td class="align-middle"><small>{{ dateformat .ExpirationT "2006-01-02 15:04"}}</small></td>
             {{if eq .Revocation ""}}
-            <td></td>
+            <td class="align-middle"><small><small></td>
             {{else}}
-            <td>{{ dateformat .RevocationT "2006-01-02 15:04"}}</td>
+            <td class="align-middle"><small>{{ dateformat .RevocationT "2006-01-02 15:04"}}</small></td>
             {{end}}
-            <td>{{ .Serial }}</td>
-            <td>
-              <span class="badge bg-warning text-dark">Country: {{ .Details.Country }}</span>
-              <span class="badge bg-warning text-dark">CN: {{ .Details.CN }}</span>
-              <span class="badge bg-warning text-dark">Email: {{ .Details.Email }}</span>
+            <td class="align-middle">
+              <span class="badge bg-secondary text-light">Country: {{ .Details.Country }}</span>
+              <span class="badge bg-secondary text-light">CN: {{ .Details.CN }}</span>
+              <span class="badge bg-secondary text-light">Email: {{ .Details.Email }}</span>
+            </td>
+            <td class="align-middle">
+              <div class="btn-group btn-group-sm">
+                {{ if eq .Revocation ""}}
+                <a href="{{urlfor "CertificatesController.Revoke" ":key" .Details.Name}}" class="btn btn-danger"><i class="fas fa-ban"></i></a>
+                {{ end }}
+                <a {{urlfor "CertificatesController.Download" ":key" .Details.Name}} class="btn btn-primary"><i class="fas fa-download"></i></a>
+              </div>
             </td>
           </tr>
           {{ end }}

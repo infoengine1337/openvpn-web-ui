@@ -43,11 +43,19 @@
 
           <div class="d-grid gap-2 col-12 mx-auto mt-4">
             <div class="form-group has-feedback">
-              <input type="text" class="form-control" name="login" placeholder="Login">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="login" name="login" placeholder="Login">
+                <label for="login">Login</label>
+              </div>
+              <!-- <input type="text" class="form-control" name="login" placeholder="Login"> -->
               <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-              <input type="password" class="form-control" name="password" placeholder="Password">
+              <div class="form-floating">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <label for="password">Password</label>
+              </div>
+              <!-- <input type="password" class="form-control" name="password" placeholder="Password"> -->
               <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             {{ .xsrfdata }}
