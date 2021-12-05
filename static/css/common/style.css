@@ -128,12 +128,6 @@ body {
     color: #aaa;
 }
 
-input {
-    height: 3em !important;
-    background-color: white !important;
-    border-radius: 4px !important;
-    margin-bottom: 10px;
-}
 
 .custom-link {
     letter-spacing: 0.07em;

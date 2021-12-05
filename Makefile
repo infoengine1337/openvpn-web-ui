@@ -7,13 +7,16 @@ docker-build:
 	docker build -t awalach/openvpn-web-ui .
 
 run:
-	(docker ps -aq | xargs -L1 docker rm -f; docker run -p 8088:8088 -p 8080:8080 -e OPENVPN_ADMIN_USERNAME=admin -e OPENVPN_ADMIN_PASSWORD=b3secure -v "$$(pwd)/":/go/src/github.com/adamwalach/openvpn-web-ui --rm -w /usr/src/myapp awalach/beego:1.8.1 sh -c "cd /go/src/github.com/adamwalach/openvpn-web-ui/ && bee run -gendoc=true")
+	(docker ps -aq | xargs -L1 docker rm -f; docker run -p 8088:8088 -p 8080:8080 -e OPENVPN_ADMIN_USERNAME=admin -e OPENVPN_ADMIN_PASSWORD=b3secure -v /root/workspace/openvpn-web-ui/docs/openvpn-data/conf:/etc/openvpn -v /root/workspace/openvpn-web-ui/docs/openvpn-data/db:/opt/openvpn-gui/db -v "$$(pwd)/":/go/src/github.com/adamwalach/openvpn-web-ui --rm -w /usr/src/myapp awalach/beego:1.8.1 sh -c "cd /go/src/github.com/adamwalach/openvpn-web-ui/ && bee run -gendoc=true")
 
 compose-up:
 	(cd docs && docker-compose up -d)
 
 compose-down:
 	(cd docs && docker-compose down)
+
+compose-logs:
+	(cd docs && docker-compose logs -f)
 
 prod-run:
 	make compose-down
