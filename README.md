@@ -1,5 +1,7 @@
 # OpenVPN-web-ui
 
+## Note: We will soon start reworking on the issues from upstream and improve theI UI/UX. Give a star to speed up the process.
+
 ## Summary
 OpenVPN server web administration interface.
 
